@@ -42,8 +42,8 @@ sub Run {
     return 1 if !first { $Templatename eq $_ }keys %{$Param{Templates}};
 
     my $ConfigObject = $Kernel::OM->Get('Kernel::Config');
-    my $Hour         = $ConfigObject->Get('Minati::DefaultPendingHour');
-    my $Minute       = $ConfigObject->Get('Minati::DefaultPendingMinute');
+    my $Hour         = $ConfigObject->Get('SetPendingTimeHourMinute::DefaultPendingHour');
+    my $Minute       = $ConfigObject->Get('SetPendingTimeHourMinute::DefaultPendingMinute');
 
     my $LayoutObject = $Kernel::OM->Get('Kernel::Output::HTML::Layout');
     $LayoutObject->AddJSOnDocumentComplete( Code => qq~
