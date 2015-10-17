@@ -1,0 +1,30 @@
+=head1 NAME
+
+SetPendingTimeHourMinute - preselect pending time to a specific time
+
+=head1 DESCRIPTION
+
+In standard OTRS, you (or the administrator) can define the a time difference
+for the pending time. But in most cases, you want to set the pending time to the
+start of you office times to be reminded at the start of your work day.
+
+This addon does exactly this. You (or the administrator) can define the hour and
+minute of the pending time.
+
+=head1 BUGTRACKER AND CODEREPOSITORY
+
+The bugtracker and the code repository are available at L<http://github.com/reneeb/otrs-SetPendingTimeHourMinute>.
+
+=head1 ACKNOWLEDGEMENTS
+
+This package was partly sponsored by SIJN ICT Services (L<http://sijn.nl>).
+
+=head1 AUTHOR AND LICENSE
+
+This package was written by Renee Baecker E<lt>otrs@perl-services.deE<gt>.
+
+The package is licensed unter AGPL. If you
+did not receive this file, see L<http://www.gnu.org/licenses/agpl.txt>.
+
+=cut
+
