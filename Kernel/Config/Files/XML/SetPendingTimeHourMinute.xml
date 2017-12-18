@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<otrs_config version="1.0" init="Config">
-    <ConfigItem Name="SetPendingTimeHourMinute::DefaultPendingHour" Required="0" Valid="1">
+<otrs_config version="2.0" init="Config">
+    <Setting Name="SetPendingTimeHourMinute::DefaultPendingHour" Required="0" Valid="1">
         <Description Translatable="1">Default hour for pending times.</Description>
-        <Group>SetPendingTimeHourMinute</Group>
-        <SubGroup>Core</SubGroup>
-        <Setting>
-            <String Regex="">8</String>
-        </Setting>
-    </ConfigItem>
-    <ConfigItem Name="SetPendingTimeHourMinute::DefaultPendingMinute" Required="0" Valid="1">
+        <Navigation>Core</Navigation>
+        <Value>
+            <Item ValueType="String" ValueRegex="^\d+$">8</Item>
+        </Value>
+    </Setting>
+    <Setting Name="SetPendingTimeHourMinute::DefaultPendingMinute" Required="0" Valid="1">
         <Description Translatable="1">Default minute for pending times.</Description>
-        <Group>SetPendingTimeHourMinute</Group>
-        <SubGroup>Core</SubGroup>
-        <Setting>
-            <String Regex="">0</String>
-        </Setting>
-    </ConfigItem>
-    <ConfigItem Name="Frontend::Output::FilterElementPost###OutputFilterPendingTimeHourMinute" Required="0" Valid="1">
+        <Navigation>Core</Navigation>
+        <Value>
+            <Item ValueType="String" ValueRegex="^\d+$">0</Item>
+        </Value>
+    </Setting>
+    <Setting Name="Frontend::Output::FilterElementPost###OutputFilterPendingTimeHourMinute" Required="0" Valid="1">
         <Description Translatable="1">Change ticket mask.</Description>
-        <Group>SetPendingTimeHourMinute</Group>
-        <SubGroup>OutputFilter</SubGroup>
-        <Setting>
+        <Navigation>Frontend::Base::OutputFilter</Navigation>
+        <Value>
             <Hash>
                 <Item Key="Module">Kernel::Output::HTML::OutputFilter::PendingTimeHourMinute</Item>
                 <Item Key="Debug">0</Item>
@@ -31,13 +28,15 @@
                         <Item Key="AgentTicketActionCommon">1</Item>
                         <Item Key="AgentTicketBounce">1</Item>
                         <Item Key="AgentTicketBulk">1</Item>
+                        <Item Key="AgentTicketNote">1</Item>
                         <Item Key="AgentTicketCompose">1</Item>
                         <Item Key="AgentTicketEmailOutbound">1</Item>
                         <Item Key="AgentTicketPhoneCommon">1</Item>
                         <Item Key="AgentTicketForward">1</Item>
+                        <Item Key="AgentTicketPending">1</Item>
                     </Hash>
                 </Item>
             </Hash>
-        </Setting>
-    </ConfigItem>
+        </Value>
+    </Setting>
 </otrs_config>

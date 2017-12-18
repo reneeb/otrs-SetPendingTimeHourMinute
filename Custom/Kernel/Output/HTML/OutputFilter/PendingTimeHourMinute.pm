@@ -1,6 +1,5 @@
 # --
-# Kernel/Output/HTML/OutputFilter/PendingTimeHourMinute.pm
-# Copyright (C) 2015 Perl-Services.de, http://www.perl-services.de/
+# Copyright (C) 2015 - 2017 Perl-Services.de, http://www.perl-services.de/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -11,8 +10,6 @@ package Kernel::Output::HTML::OutputFilter::PendingTimeHourMinute;
 
 use strict;
 use warnings;
-
-use List::Util qw(first);
 
 our @ObjectDependencies = qw(
     Kernel::Config
@@ -39,7 +36,7 @@ sub Run {
     # get template name
     my $Templatename = $Param{TemplateFile} || '';
     return 1 if !$Templatename;
-    return 1 if !first { $Templatename eq $_ }keys %{$Param{Templates}};
+    return 1 if !$Param{Templates}->{$Templatename};
 
     my $ConfigObject = $Kernel::OM->Get('Kernel::Config');
     my $Hour         = $ConfigObject->Get('SetPendingTimeHourMinute::DefaultPendingHour');
@@ -53,7 +50,7 @@ sub Run {
         //]]></script>~
     );
 
-    return ${ $Param{Data} };
+    return 1;
 }
 
 1;
